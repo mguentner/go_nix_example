@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func generate_emoji(w http.ResponseWriter, req *http.Request) {
+func generateEmoji(w http.ResponseWriter, req *http.Request) {
 	const tpl = `
 	<!DOCTYPE html>
 	<html>
@@ -51,6 +51,6 @@ func main() {
 	listenAddress := flag.String("l", ":8090", "listen address")
 	flag.Parse()
 	log.Printf("Listening on %s", *listenAddress)
-	http.HandleFunc("/", generate_emoji)
+	http.HandleFunc("/", generateEmoji)
 	http.ListenAndServe(*listenAddress, nil)
 }
